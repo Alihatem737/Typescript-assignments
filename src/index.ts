@@ -80,4 +80,134 @@ console.log(printInConsole(true, false, false, true, true));
 //----------------------
 
 
+//1 
 
+type n = number
+let myData: n;
+
+
+
+myData = 1000;
+myData = +true;
+
+
+
+
+//2 
+
+type mix = number | boolean;
+
+let myInfo: mix;
+
+myInfo = 1000;
+myInfo = true;
+
+
+
+
+//3 
+
+
+type Info = {
+    theName : string,
+    theAge : number
+}
+
+type Full = Info & {
+    country : string
+}
+
+
+
+//4 
+
+
+function yesOrNo(num : number) : boolean{
+
+    return num > 10
+}
+
+//yesOrNo("100") 
+yesOrNo(30)    // true
+yesOrNo(8)     // false
+
+
+
+
+
+
+//5 
+
+type custom = "Yes" | "No";
+
+
+function isHeOld(age: number ) : custom  {
+  return age > 40 ?  "Yes" : "No";
+}
+
+
+//isHeOld("100") // Error
+isHeOld(45)    // "Yes"
+isHeOld(30)    // "No"
+
+
+
+
+
+//6 
+
+
+let post: readonly [number, string, boolean];
+
+post = [100, "Title", true];
+
+let [id, title, state] = post;
+
+
+
+
+
+//7
+
+
+enum Game {
+  Easy = 100,
+  Medium = Easy -20 , 
+  Hard = Medium - (Easy / 2),
+  Insane = calc(10)
+}
+
+function calc(num: number) {
+  return Game.Hard - num
+}
+
+
+
+
+
+//8
+
+
+const user: {
+   username: string,
+  age: number | string,
+  website?: string,
+  skills: {
+    frontEnd: string[],
+    backEnd: (string | number)[]
+  }
+} ={
+    username : "Osama" , 
+     age: 40,
+     skills: {
+  frontEnd: ["HTML", "CSS", "JS"],
+  backEnd: ["PHP", "Python"]
+}
+  
+}
+
+
+
+user.username = "Osama";
+user.age = "40";
+user.skills.backEnd.push(100);
